@@ -3,9 +3,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 function Header(props) {
   const router = useRouter();
-  useEffect(() => {
-    console.log("router.route::", router.route);
-  }, [router]);
+
   return (
     <div className="header-wrapper p-2 text-slate-600 flex">
       <div className="logo-wrapper  w-full">

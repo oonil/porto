@@ -21,19 +21,19 @@ function Hero() {
     );
     setHeightArr(heightArray);
     setWidthArr(widthArray);
-    // const myInterval = setInterval(() => {
-    //   setGenerateNow(!generateNow);
-    // }, 1000);
+    const myInterval = setInterval(() => {
+      setGenerateNow(!generateNow);
+    }, 2000);
     return () => {
-      // clearInterval(myInterval);
+      clearInterval(myInterval);
     };
-  }, []);
+  }, [generateNow]);
 
   //
 
   return (
     <div
-      className="hero-wrapper overflow-hidden  "
+      className="hero-wrapper overflow-hidden bg-white "
       style={{ backgroundColor: "#252932" }}
     >
       <div className="hero-container h-screen flex ">
@@ -49,13 +49,13 @@ function Hero() {
           </div>
         </div>
         {/* design patterns */}
-        <div className="hero-part2 overflow-hidden  flex-1" ref={patternRef}>
+        <div className="hero-part2 overflow-hidden  flex-1 " ref={patternRef}>
           <div className="">
             {widthArr.map((width, i) => {
               return (
                 <div className="flex" key={i}>
                   {heightArr.map((height, i) => (
-                    <Block key={i} />
+                    <Block key={i} generate={generateNow} />
                   ))}
                 </div>
               );
